@@ -17,6 +17,7 @@ class LoginScreen extends StatelessWidget {
               width: 500,
               height: 400,
               decoration: BoxDecoration(
+                 color:  Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
                 border: Border.all(
                   color: Color.fromARGB(
                     255,
@@ -53,7 +54,7 @@ class LoginScreen extends StatelessWidget {
                             ],
                           )),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       ElevatedButton(
                         child: Text("Login"),
@@ -62,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                             borderRadius: new BorderRadius.circular(30.0),
                           ),
                           primary: Color.fromARGB(255, 243, 128, 5),
-                          minimumSize: Size(450, 40),
+                          minimumSize: Size(420, 40),
                         ),
                         onPressed: () {
                           print("login done");

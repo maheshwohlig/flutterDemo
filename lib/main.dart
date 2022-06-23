@@ -1,6 +1,8 @@
+// ignore: unused_import
 import 'package:demo/home.dart';
 import 'package:demo/login.dart';
-import 'package:demo/setting.dart';
+import 'package:demo/BottomNav.dart';
+import 'package:demo/account.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
@@ -28,10 +30,10 @@ class _MainViewState extends State<MainView> {
       child: LoginScreen(),
     ),
     Center(
-      child: HomePage(),
+      child: BottomNav(),
     ),
     Center(
-      child: Setting(),
+      child: Account(),
     ),
   ];
 
@@ -55,15 +57,15 @@ class _MainViewState extends State<MainView> {
             items: const [
               SideNavigationBarItem(
                 icon: Icons.dashboard,
-                label: 'Dashboard',
+                label: 'LoginScreen',
               ),
               SideNavigationBarItem(
                 icon: Icons.person,
-                label: 'Account',
+                label: 'BottomNav',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,
-                label: 'Settings',
+                label: 'Setting',
               ),
             ],
             onTap: (index) {
