@@ -23,15 +23,89 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentPage = 0;
   final _pageController = PageController();
-
+  bool _isExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: _pageController,
         children: [
-          Container(color: Colors.blue),
-          Container(color: Colors.red),
+          Container(
+            decoration: BoxDecoration(color: Color.fromARGB(255, 8, 8, 8)),
+            alignment: Alignment.center,
+            child: Container(
+              width: 100,
+              height: 30,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color.fromARGB(255, 243, 5, 5),
+                  width: 2,
+                ),
+              ),
+              child: TextButton(
+                onPressed: () => showDialog<String>(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text('AlertDialog Title'),
+                    content: const Text('AlertDialog description'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'Cancel'),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                ),
+                child: const Text('Show Dialog'),
+              ),
+            ),
+          ),
+          Container(
+              child: Scaffold(
+            appBar: AppBar(
+              title: Text('Expansion Tile'),
+            ),
+            drawer: Drawer(
+              child: Column(
+                children: <Widget>[
+                  ExpansionTile(
+                    onExpansionChanged: (b) {
+                      setState(() {
+                        _isExpanded =
+                            !_isExpanded; //using set state just to exemplify
+                      });
+                    },
+                    title: Text('Expand items'),
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(right: 100),
+                      child: Icon(_isExpanded
+                          ? Icons.keyboard_arrow_up
+                          : Icons.keyboard_arrow_down),
+                    ),
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30, right: 60),
+                        child: ExpansionTile(
+                          title: Text('First child'),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30, right: 60),
+                        child: ExpansionTile(
+                          title: Text('Second child'),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )),
           Container(color: Colors.greenAccent.shade700),
           Container(color: Colors.orange),
         ],

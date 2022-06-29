@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    const primaryColor = Color(0xFF151026);
     return Scaffold(
-        appBar: AppBar(title: Text('Welcome To Login')),
+        appBar: AppBar(
+          title: Text('Welcome To Login'),
+        ),
         body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -17,7 +20,7 @@ class LoginScreen extends StatelessWidget {
               width: 500,
               height: 400,
               decoration: BoxDecoration(
-                 color:  Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
+                color: Color.fromARGB(255, 0, 0, 0).withOpacity(0.5),
                 border: Border.all(
                   color: Color.fromARGB(
                     255,
@@ -33,13 +36,19 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("images/PlayExch-logo_w.png",
-                          width: 300, height: 100),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.blue, width: 1),
+                        ),
+                        child: Image.asset("images/PlayExch-logo_w.png",
+                            width: 300, height: 100),
+                      ),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: Column(
                             children: [
                               TextFormField(
+                                initialValue: "bunny",
                                 decoration: InputDecoration(
                                   labelText: "UserName",
                                 ),
@@ -48,9 +57,16 @@ class LoginScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               TextFormField(
-                                decoration:
-                                    InputDecoration(labelText: "Password"),
-                              )
+                                obscureText: true,
+                                decoration: InputDecoration(
+                                    labelText: "Password",
+                                    suffixIcon: Padding(
+                                      padding: const EdgeInsets.only(top: 20),
+                                      child: Icon(
+                                        Icons.remove_red_eye,
+                                      ),
+                                    )),
+                              ),
                             ],
                           )),
                       SizedBox(

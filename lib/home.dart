@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_sidemenu/easy_sidemenu.dart';
 
-class m extends StatelessWidget {
+class HomePage extends StatelessWidget {
   int days = 30;
   String name = "Home Page";
   @override

@@ -3,12 +3,15 @@ import 'package:demo/home.dart';
 import 'package:demo/login.dart';
 import 'package:demo/BottomNav.dart';
 import 'package:demo/account.dart';
+import 'package:demo/ExpandedTile.dart';
+import 'package:demo/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       themeMode: ThemeMode.dark,
       home: const MainView(),
@@ -24,8 +27,13 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
+  bool _isExpanded = false;
+
   /// Views to display
   List<Widget> views = [
+    Center(
+      child: Account(),
+    ),
     Center(
       child: LoginScreen(),
     ),
@@ -33,8 +41,11 @@ class _MainViewState extends State<MainView> {
       child: BottomNav(),
     ),
     Center(
-      child: Account(),
+      child: ExpansionTileSample(),
     ),
+    Center(
+      child: Setting(),
+    )
   ];
 
   /// The currently selected index of the bar
@@ -43,6 +54,39 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Welcome To Login'),
+        backgroundColor: Color.fromARGB(255, 6, 10, 239),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.favorite,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.call),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.more_vert),
+          ),
+        ],
+      ),
+
       /// You can use an AppBar if you want to
       //appBar: AppBar(
       //  title: const Text('App'),
@@ -51,21 +95,28 @@ class _MainViewState extends State<MainView> {
       // The row is needed to display the current view
       body: Row(
         children: [
-          /// Pretty similar to the BottomNavigationBar!
           SideNavigationBar(
             selectedIndex: selectedIndex,
             items: const [
               SideNavigationBarItem(
                 icon: Icons.dashboard,
-                label: 'LoginScreen',
+                label: 'Accont',
               ),
               SideNavigationBarItem(
                 icon: Icons.person,
+                label: 'LoginScreen',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.settings,
                 label: 'BottomNav',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,
-                label: 'Setting',
+                label: 'ExpansionTileSample',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.settings,
+                label: 'setting',
               ),
             ],
             onTap: (index) {
