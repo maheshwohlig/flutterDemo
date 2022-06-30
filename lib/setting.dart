@@ -11,6 +11,7 @@ class Setting extends StatelessWidget {
         alignment: Alignment.centerLeft,
         //height: 500,
         padding: EdgeInsets.all(30),
+
         //color: Colors.black,
         child: Container(
           decoration:
