@@ -10,42 +10,78 @@ class TableData extends StatelessWidget {
         DataColumn(
           label: Text(
             'Name',
-            style: TextStyle(fontStyle: FontStyle.italic),
+            style: TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
           ),
         ),
         DataColumn(
           label: Text(
-            'Ages',
-            style: TextStyle(fontStyle: FontStyle.italic),
+            'subject',
+            style: TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
           ),
         ),
         DataColumn(
           label: Text(
-            'Role',
-            style: TextStyle(fontStyle: FontStyle.italic),
+            'Amout',
+            style: TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
           ),
         ),
       ],
       rows: const <DataRow>[
         DataRow(
           cells: <DataCell>[
-            DataCell(Text('Sarah')),
-            DataCell(Text('19')),
-            DataCell(Text('Student')),
+            DataCell(Text(
+              'Sarah',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              'Rahul',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              'Bunny',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
           ],
         ),
         DataRow(
           cells: <DataCell>[
-            DataCell(Text('Janine')),
-            DataCell(Text('43')),
-            DataCell(Text('Professor')),
+            DataCell(Text(
+              '123',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              '123',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              '123',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
           ],
         ),
         DataRow(
           cells: <DataCell>[
-            DataCell(Text('William')),
-            DataCell(Text('27')),
-            DataCell(Text('Associate Professor')),
+            DataCell(Text(
+              'abc',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              'abc',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
+            DataCell(Text(
+              'abca',
+              style:
+                  TextStyle(fontStyle: FontStyle.italic, color: Colors.black),
+            )),
           ],
         ),
       ],

@@ -8,6 +8,8 @@ import 'package:demo/setting.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
+import 'Game_Config.dart';
+
 void main() {
   runApp(
     MaterialApp(
@@ -32,12 +34,15 @@ class _MainViewState extends State<MainView> {
   /// Views to display
   List<Widget> views = [
     Center(
+      child: Game_config(),
+    ),
+    Center(
       child: Account(),
     ),
     Center(
       child: LoginScreen(),
     ),
-    Center(
+    const Center(
       child: BottomNav(),
     ),
     Center(

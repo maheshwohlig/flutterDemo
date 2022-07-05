@@ -1,48 +1,28 @@
-// ignore_for_file: unnecessary_const
-
-import 'package:demo/ExpandedTile.dart';
-import 'package:demo/deshbord.dart';
-import 'package:demo/login.dart';
-import 'package:demo/table.dart';
 import 'package:flutter/material.dart';
 
-class Account extends StatelessWidget {
+class Deshbord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      padding:
-          const EdgeInsets.only(top: 40, left: 50, right: 50, bottom: 30.0),
+      padding: const EdgeInsets.only(top: 10),
       color: Colors.grey.shade200,
       child: Column(
         children: <Widget>[
-          Row(children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.only(
-                bottom: 20,
-              ),
-              child: Text(
-                "Dashboards",
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 13, 13, 13),
-                  fontSize: 18,
-                  fontFamily: 'RaleWay',
-                ),
-              ),
-            )
-          ]),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Expanded(
                 child: Container(
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 0,
+                        color: Colors.grey.shade200,
+                      ),
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   margin: const EdgeInsets.only(right: 20.0),
-                  width: 100,
-                  height: 100,
+                  height: 280,
                   child: Column(
                     children: [
                       const Padding(
@@ -87,8 +67,7 @@ class Account extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   margin: const EdgeInsets.only(right: 20.0),
-                  width: 100,
-                  height: 100,
+                  height: 340,
                   child: Column(
                     children: [
                       Column(
@@ -112,8 +91,7 @@ class Account extends StatelessWidget {
                           child: Container(
                               margin: const EdgeInsets.only(
                                   left: 42.0, bottom: 5.0),
-                              child: Text(
-                                textAlign: TextAlign.left,
+                              child: const Text(
                                 "RESOLVE ALL",
                                 style: TextStyle(
                                   fontSize: 12,
@@ -151,8 +129,7 @@ class Account extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   margin: const EdgeInsets.only(right: 20.0),
-                  width: 100,
-                  height: 100,
+                  height: 280,
                   child: Column(children: [
                     Column(
                       children: [
@@ -225,95 +202,8 @@ class Account extends StatelessWidget {
                   ]),
                 ),
               ),
-              Expanded(
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  margin: const EdgeInsets.only(right: 20.0),
-                  width: 100,
-                  height: 100,
-                  child: Column(children: [
-                    Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.topRight,
-                          margin: const EdgeInsets.only(top: 5.0, right: 5.0),
-                          child: Icon(
-                            Icons.cached,
-                            size: 20.0,
-                            color: Colors.grey.shade500,
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          margin: const EdgeInsets.only(left: 32.0),
-                          decoration: const BoxDecoration(
-                              color: Color.fromARGB(255, 187, 106, 197),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30))),
-                          child: const Icon(
-                            Icons.shopping_cart,
-                            size: 24.0,
-                            color: Color.fromARGB(255, 250, 248, 248),
-                          ),
-                        ),
-                        Column(
-                          children: [
-                            Row(children: [
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(left: 15.0, top: 5.0),
-                                child: const Icon(
-                                  Icons.arrow_upward,
-                                  size: 20.0,
-                                  color: Color.fromARGB(255, 122, 216, 68),
-                                ),
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.only(left: 5.0, top: 5.0),
-                                child: const Text(
-                                  "NEW ORDERS",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                              ),
-                            ]),
-                            Container(
-                              margin: const EdgeInsets.only(top: 5.0),
-                              child: const Text(
-                                "5,218",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 81, 79, 79),
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ]),
-                ),
-              ),
             ],
           ),
-          Container(
-            margin: const EdgeInsets.only(top: 20.0),
-            height: 350,
-            child: Center(
-              child: Deshbord(),
-            ),
-          )
         ],
       ),
     ));

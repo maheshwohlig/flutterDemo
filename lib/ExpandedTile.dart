@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new
+
 import 'package:demo/home.dart';
 import 'package:flutter/material.dart';
 
@@ -5,6 +7,7 @@ class ExpansionTileSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: new Scaffold(
         appBar: new AppBar(
           title: const Text('ExpansionTile'),
@@ -77,8 +80,8 @@ class EntryItem extends StatelessWidget {
   final BuildContext context;
 
   Widget _buildTiles(Entry root) {
-    if (root.children.isEmpty)
-      return new ListTile(
+    if (root.children.isEmpty) {
+      return ListTile(
           onTap: () {
             print(context);
             Navigator.of(context)
@@ -87,6 +90,7 @@ class EntryItem extends StatelessWidget {
             }));
           },
           title: new Text(root.title));
+    }
     return new ExpansionTile(
       key: new PageStorageKey<Entry>(root),
       title: new Text(root.title),

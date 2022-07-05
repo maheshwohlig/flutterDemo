@@ -1,7 +1,10 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:bottom_bar/bottom_bar.dart';
 
 class BottomNav extends StatelessWidget {
+  const BottomNav({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +18,7 @@ class BottomNav extends StatelessWidget {
   }
 }
 
+// ignore: use_key_in_widget_constructors
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -65,8 +69,7 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          Container(
-              child: Scaffold(
+          Scaffold(
             appBar: AppBar(
               title: Text('Expansion Tile'),
             ),
@@ -87,15 +90,15 @@ class _HomeState extends State<Home> {
                           ? Icons.keyboard_arrow_up
                           : Icons.keyboard_arrow_down),
                     ),
-                    children: <Widget>[
+                    children: const [
                       Padding(
-                        padding: const EdgeInsets.only(left: 30, right: 60),
+                        padding: EdgeInsets.only(left: 30, right: 60),
                         child: ExpansionTile(
                           title: Text('First child'),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 30, right: 60),
+                        padding: EdgeInsets.only(left: 30, right: 60),
                         child: ExpansionTile(
                           title: Text('Second child'),
                         ),
@@ -105,7 +108,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-          )),
+          ),
           Container(color: Colors.greenAccent.shade700),
           Container(color: Colors.orange),
         ],
@@ -127,7 +130,7 @@ class _HomeState extends State<Home> {
             activeColor: Colors.blue,
             activeTitleColor: Colors.blue.shade600,
           ),
-          BottomBarItem(
+          const BottomBarItem(
             icon: Icon(Icons.favorite),
             title: Text('Favorites'),
             activeColor: Colors.red,
