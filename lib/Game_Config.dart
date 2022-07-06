@@ -1,17 +1,47 @@
+// ignore: file_names
 // ignore_for_file: unnecessary_const, deprecated_member_use
+
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types, must_be_immutable
-class Game_config extends StatelessWidget {
-  int counter = 0;
+class Game_config extends StatefulWidget {
+  final int minValue;
+  final int maxValue;
+  const Game_config({
+    Key? key,
+    this.minValue = 0,
+    this.maxValue = 10,
+  }) : super(key: key);
 
-  Game_config({Key? key}) : super(key: key);
+  @override
+  Game_configState createState() => Game_configState();
+}
+
+// ignore: camel_case_types
+class Game_configState extends State<Game_config> {
+  // ignore: non_constant_identifier_names
+  int Major_counter = 0;
+  // ignore: non_constant_identifier_names
+  int Minor_counter = 0;
+  // ignore: non_constant_identifier_names
+  int Build_counter = 0;
+
+  void _decrementCounter() {
+    setState(() {
+      if (Major_counter > widget.minValue) {
+        Major_counter--;
+      }
+    });
+  }
+
   void _incrementCounter() {
-    print('hello');
-    // setState(() {
-    //   counter++;
-    // });
+    setState(() {
+      if (Major_counter < widget.maxValue) {
+        Major_counter++;
+      }
+    });
   }
 
   @override
@@ -140,17 +170,18 @@ class Game_config extends StatelessWidget {
                                   height: 45.0,
                                   child: RaisedButton(
                                     color: const Color.fromARGB(255, 244, 5, 5),
+                                    // ignore: sort_child_properties_last
                                     child: const Icon(
                                       Icons.remove,
                                       size: 14.0,
                                       color: Colors.white,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: _decrementCounter,
                                   ),
                                 ),
                               ),
                               Text(
-                                '$counter',
+                                '$Major_counter',
                                 style: const TextStyle(
                                   color: Color.fromARGB(255, 14, 14, 14),
                                 ),
@@ -219,7 +250,7 @@ class Game_config extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '$counter',
+                                '$Minor_counter',
                                 style: const TextStyle(
                                   color: Color.fromARGB(255, 14, 14, 14),
                                 ),
@@ -282,7 +313,7 @@ class Game_config extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '$counter',
+                                '$Build_counter',
                                 style: const TextStyle(
                                   color: Color.fromARGB(255, 14, 14, 14),
                                 ),
