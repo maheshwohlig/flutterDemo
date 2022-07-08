@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_new
 
-import 'package:demo/home.dart';
+import 'package:demo/Provider.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -42,13 +42,8 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue, width: 1),
-                        ),
-                        child: Image.asset("images/PlayExch-logo_w.png",
-                            width: 300, height: 100),
-                      ),
+                      Image.asset("images/PlayExch-logo_w.png",
+                          width: 300, height: 100),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 50),
                           child: Column(
@@ -90,8 +85,10 @@ class LoginScreen extends StatelessWidget {
                           minimumSize: const Size(420, 40),
                         ),
                         onPressed: () {
-                          debugPrint(userController.value.text);
-                          debugPrint(passwordController.value.text);
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Provider()));
                         },
                       )
                     ]),

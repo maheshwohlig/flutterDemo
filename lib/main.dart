@@ -1,10 +1,14 @@
 // ignore: unused_import
-import 'package:demo/home.dart';
+import 'package:demo/CreateProvider.dart';
+import 'package:demo/dashboard.dart';
+
 import 'package:demo/login.dart';
 import 'package:demo/BottomNav.dart';
-import 'package:demo/account.dart';
+
 import 'package:demo/ExpandedTile.dart';
+import 'package:demo/Provider.dart';
 import 'package:demo/setting.dart';
+import 'package:demo/table.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
@@ -25,6 +29,7 @@ class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MainViewState createState() => _MainViewState();
 }
 
@@ -33,11 +38,14 @@ class _MainViewState extends State<MainView> {
 
   /// Views to display
   List<Widget> views = [
-    Center(
+    const Center(
+      child: Dashboard(),
+    ),
+    const Center(
       child: Game_config(),
     ),
-    Center(
-      child: Account(),
+    const Center(
+      child: Provider(),
     ),
     Center(
       child: LoginScreen(),
@@ -50,6 +58,9 @@ class _MainViewState extends State<MainView> {
     ),
     Center(
       child: Setting(),
+    ),
+    const Center(
+      child: Provider_table(),
     )
   ];
 
@@ -60,11 +71,11 @@ class _MainViewState extends State<MainView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome To Login'),
-        backgroundColor: Color.fromARGB(255, 6, 10, 239),
+        title: const Text('Welcome To Login'),
+        backgroundColor: const Color.fromARGB(255, 6, 10, 239),
         actions: <Widget>[
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.settings,
               color: Colors.white,
             ),
@@ -73,7 +84,7 @@ class _MainViewState extends State<MainView> {
             },
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite,
               color: Colors.white,
             ),
@@ -83,11 +94,11 @@ class _MainViewState extends State<MainView> {
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.call),
+            icon: const Icon(Icons.call),
           ),
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.more_vert),
+            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),
@@ -105,15 +116,19 @@ class _MainViewState extends State<MainView> {
             items: const [
               SideNavigationBarItem(
                 icon: Icons.dashboard,
-                label: 'Accont',
+                label: 'Dashboard',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.dashboard,
+                label: 'Config',
               ),
               SideNavigationBarItem(
                 icon: Icons.person,
-                label: 'LoginScreen',
+                label: 'Provider',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,
-                label: 'BottomNav',
+                label: 'LoginPage',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,
@@ -122,6 +137,10 @@ class _MainViewState extends State<MainView> {
               SideNavigationBarItem(
                 icon: Icons.settings,
                 label: 'setting',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.settings,
+                label: 'table',
               ),
             ],
             onTap: (index) {
