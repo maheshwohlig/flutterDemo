@@ -137,6 +137,7 @@ class ProviderState extends State<Provider> {
                   ),
                 ),
                 Container(
+                  height: 500,
                   child: const Center(
                     child: Provider_table(),
                   ),
