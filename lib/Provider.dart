@@ -42,8 +42,7 @@ class ProviderState extends State<Provider> {
                     ),
                   )),
             ]),
-            Container(
-                child: Column(
+            Column(
               children: <Widget>[
                 Container(
                   color: Colors.white, // <-- Red color provided to below Row
@@ -51,7 +50,7 @@ class ProviderState extends State<Provider> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Expanded(
-                        flex: 3,
+                        flex: 2,
                         child: Container(
                             decoration: const BoxDecoration(),
                             child: Column(
@@ -73,74 +72,77 @@ class ProviderState extends State<Provider> {
                               ],
                             )),
                       ),
+                      // Expanded(
+                      //   flex: 2,
+                      //   child: Container(
+                      //     width: double.infinity,
+                      //   ),
+                      // ),
                       Expanded(
-                        flex: 2,
-                        child: Container(
-                          width: double.infinity,
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Row(children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.only(top: 30, bottom: 30),
-                            width: 250,
-                            height: 40,
-                            child: const TextField(
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'RaleWay',
-                              ),
-                              decoration: InputDecoration(
-                                hintText: 'search',
-                                hintStyle: TextStyle(color: Colors.black),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color.fromARGB(255, 131, 128, 128),
+                        flex: 6,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin:
+                                    const EdgeInsets.only(top: 30, bottom: 30),
+                                width: 250,
+                                height: 40,
+                                child: const TextField(
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'RaleWay',
+                                  ),
+                                  decoration: InputDecoration(
+                                    hintText: 'search',
+                                    hintStyle: TextStyle(color: Colors.black),
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:
+                                            Color.fromARGB(255, 131, 128, 128),
+                                      ),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color: Color.fromARGB(
+                                              255, 54, 158, 244)),
+                                    ),
                                   ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: Color.fromARGB(255, 54, 158, 244)),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(
+                                    left: 10, top: 30, bottom: 30, right: 30),
+                                alignment: Alignment.topCenter,
+                                child: ButtonTheme(
+                                  minWidth: 100.0,
+                                  height: 45.0,
+                                  child: RaisedButton(
+                                      color:
+                                          const Color.fromARGB(255, 5, 244, 81),
+                                      onPressed: () {
+                                        Navigator.pushReplacement(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    const CreateProvider()));
+                                      },
+                                      child: const Text('create')),
                                 ),
                               ),
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(
-                              left: 10,
-                              top: 30,
-                              bottom: 30,
-                            ),
-                            alignment: Alignment.topCenter,
-                            child: ButtonTheme(
-                              minWidth: 100.0,
-                              height: 45.0,
-                              child: RaisedButton(
-                                  color: const Color.fromARGB(255, 5, 244, 81),
-                                  onPressed: () {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const CreateProvider()));
-                                  },
-                                  child: const Text('create')),
-                            ),
-                          ),
-                        ]),
+                            ]),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                  height: 500,
                   child: const Center(
                     child: Provider_table(),
                   ),
                 ),
               ],
-            ))
+            )
           ],
         ),
       ),

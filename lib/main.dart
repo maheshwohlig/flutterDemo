@@ -39,13 +39,13 @@ class _MainViewState extends State<MainView> {
   /// Views to display
   List<Widget> views = [
     const Center(
-      child: Dashboard(),
+      child: Provider(),
     ),
     const Center(
       child: Game_config(),
     ),
     const Center(
-      child: Provider(),
+      child: Dashboard(),
     ),
     Center(
       child: LoginScreen(),
