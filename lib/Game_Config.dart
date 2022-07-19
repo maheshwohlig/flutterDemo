@@ -1,8 +1,6 @@
 // ignore: file_names
 // ignore_for_file: unnecessary_const, deprecated_member_use
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types, must_be_immutable
@@ -239,7 +237,7 @@ class Game_configState extends State<Game_config> {
                                   minWidth: 14.0,
                                   height: 45.0,
                                   child: RaisedButton(
-                                    color: Color.fromARGB(255, 244, 5, 5),
+                                    color: const Color.fromARGB(255, 244, 5, 5),
                                     onPressed: () {},
                                     child: const Icon(
                                       Icons.remove,
@@ -262,7 +260,7 @@ class Game_configState extends State<Game_config> {
                                   minWidth: 14.0,
                                   height: 45.0,
                                   child: RaisedButton(
-                                    color: Color.fromARGB(255, 244, 5, 5),
+                                    color: const Color.fromARGB(255, 244, 5, 5),
                                     onPressed: () {},
                                     child: const Icon(
                                       Icons.add,
@@ -302,7 +300,7 @@ class Game_configState extends State<Game_config> {
                                   minWidth: 14.0,
                                   height: 45.0,
                                   child: RaisedButton(
-                                    color: Color.fromARGB(255, 244, 5, 5),
+                                    color: const Color.fromARGB(255, 244, 5, 5),
                                     onPressed: () {},
                                     child: const Icon(
                                       Icons.remove,

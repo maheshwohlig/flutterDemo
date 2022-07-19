@@ -11,31 +11,35 @@ class Provider_table extends StatelessWidget {
       home: Scaffold(
           body: ListView(children: <Widget>[
         DataTable(
+          border: const TableBorder(
+              top: BorderSide(
+                  color: Color.fromARGB(255, 218, 218, 223),
+                  style: BorderStyle.solid)),
           columns: const [
             DataColumn(
                 label: Text('Sr',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
             DataColumn(
                 label: Text('Provider Name',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
             DataColumn(
                 label: Text('Provider Id',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
             DataColumn(
                 label: Text('Order',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
             DataColumn(
                 label: Text('Icon',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
             DataColumn(
                 label: Text('Action',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold))),
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold))),
           ],
           rows: const [
             DataRow(cells: [

@@ -4,7 +4,6 @@
 import 'package:demo/Provider.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types, must_be_immutable
 class CreateProvider extends StatefulWidget {
   const CreateProvider({Key? key}) : super(key: key);
 
@@ -12,10 +11,8 @@ class CreateProvider extends StatefulWidget {
   CreateProviderState createState() => CreateProviderState();
 }
 
-// ignore: camel_case_types
 class CreateProviderState extends State<CreateProvider> {
-  // ignore: non_constant_identifier_names
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,6 +132,44 @@ class CreateProviderState extends State<CreateProvider> {
                         margin: const EdgeInsets.only(left: 10, bottom: 10),
                         child: const Text(
                           "Order",
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 50,
+                    ),
+                    child: TextField(
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'RaleWay',
+                      ),
+                      decoration: InputDecoration(
+                        enabledBorder: const OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 131, 128, 128),
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 158, 244)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 42.0,
+                      top: 20,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 10, bottom: 10),
+                        child: const Text(
+                          "Game Icon",
                           style: TextStyle(fontSize: 15, color: Colors.black),
                         ),
                       ),
