@@ -1,11 +1,10 @@
 // ignore: file_names
 // ignore_for_file: unnecessary_const, deprecated_member_use
 
-import 'dart:io';
-
 import 'package:demo/Provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class CreateProvider extends StatefulWidget {
   const CreateProvider({Key? key}) : super(key: key);
@@ -15,12 +14,16 @@ class CreateProvider extends StatefulWidget {
 }
 
 class CreateProviderState extends State<CreateProvider> {
+  bool status = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding:
-            const EdgeInsets.only(top: 40, left: 50, right: 50, bottom: 40.0),
+        padding: const EdgeInsets.only(
+          top: 40,
+          left: 50,
+          right: 50,
+        ),
         color: Colors.grey.shade200,
         child: Column(
           children: <Widget>[
@@ -178,26 +181,61 @@ class CreateProviderState extends State<CreateProvider> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       horizontal: 50,
                     ),
                     child: RaisedButton(
-                      child: Text('UPLOAD FILE'),
+                      child: const Text('CHOOSE FILE'),
                       onPressed: () async {
                         FilePickerResult? result =
                             await FilePicker.platform.pickFiles();
-                        print("called file picker");
+                        print(">>>>>>>>> called file picker");
                       },
                     ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 42.0,
+                      top: 20,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 10, bottom: 10),
+                        child: const Text(
+                          "Status",
+                          style: TextStyle(fontSize: 15, color: Colors.black),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 50,
+                    ),
+                    child: Container(
+                        alignment: Alignment.centerLeft,
+                        width: 60.0,
+                        child: FlutterSwitch(
+                          width: 60.0,
+                          height: 30.0,
+                          valueFontSize: 15.0,
+                          toggleSize: 20.0,
+                          value: status,
+                          padding: 5.0,
+                          showOnOff: true,
+                          onToggle: (val) {
+                            setState(() {
+                              status = val;
+                            });
+                          },
+                        )),
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Container(
-                            margin: const EdgeInsets.only(
-                              top: 30,
-                            ),
                             height: 90,
                             width: 100,
                             alignment: Alignment.topCenter,
@@ -219,9 +257,6 @@ class CreateProviderState extends State<CreateProvider> {
                               ),
                             ])),
                         Container(
-                            margin: const EdgeInsets.only(
-                              top: 30,
-                            ),
                             height: 90,
                             width: 100,
                             alignment: Alignment.topCenter,
