@@ -1,7 +1,10 @@
 // ignore: file_names
 // ignore_for_file: unnecessary_const, deprecated_member_use
 
+import 'dart:io';
+
 import 'package:demo/Provider.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class CreateProvider extends StatefulWidget {
@@ -12,7 +15,6 @@ class CreateProvider extends StatefulWidget {
 }
 
 class CreateProviderState extends State<CreateProvider> {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -175,26 +177,17 @@ class CreateProviderState extends State<CreateProvider> {
                       ),
                     ),
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,
                     ),
-                    child: TextField(
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'RaleWay',
-                      ),
-                      decoration: InputDecoration(
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 131, 128, 128),
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 54, 158, 244)),
-                        ),
-                      ),
+                    child: RaisedButton(
+                      child: Text('UPLOAD FILE'),
+                      onPressed: () async {
+                        FilePickerResult? result =
+                            await FilePicker.platform.pickFiles();
+                        print("called file picker");
+                      },
                     ),
                   ),
                   Row(
