@@ -1,12 +1,9 @@
-// ignore: file_names
-// ignore_for_file: unnecessary_const, deprecated_member_use
-
 import 'package:demo/CreateProvider.dart';
-import 'package:demo/table.dart';
+import 'package:demo/main.dart';
+import 'package:demo/Provider_table.dart';
 
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types, must_be_immutable
 class Provider extends StatefulWidget {
   const Provider({Key? key}) : super(key: key);
 
@@ -14,13 +11,13 @@ class Provider extends StatefulWidget {
   ProviderState createState() => ProviderState();
 }
 
-// ignore: camel_case_types
 class ProviderState extends State<Provider> {
   // ignore: non_constant_identifier_names
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // drawer: MainView(),
         body: LayoutBuilder(
             builder: (context, constraints) => SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -133,7 +130,10 @@ class ProviderState extends State<Provider> {
                                                           context,
                                                           MaterialPageRoute(
                                                               builder: (context) =>
-                                                                  const CreateProvider()));
+                                                                  CreateProvider(
+                                                                    value:
+                                                                        'createProvider',
+                                                                  )));
                                                     },
                                                     child:
                                                         const Text('create')),
