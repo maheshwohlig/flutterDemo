@@ -1,20 +1,21 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:demo/Provider.dart';
-import 'package:demo/main.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
 class CreateProvider extends StatefulWidget {
-  const CreateProvider({Key? key}) : super(key: key);
-
+  final String value;
+  CreateProvider({Key? key, required String this.value}) : super(key: key);
+  // const CreateProvider({super.key, required this.value});
+  // final Value value;
   @override
   CreateProviderState createState() => CreateProviderState();
 }
 
 class CreateProviderState extends State<CreateProvider> {
   final _formKey = GlobalKey<FormState>();
+
+  // String textHolder = "";
 
   late FocusNode nameField;
   late FocusNode gameField;
@@ -60,30 +61,36 @@ class CreateProviderState extends State<CreateProvider> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.value);
+
+    // final todos = ModalRoute.of(context)!.settings.arguments as Value;
+    // print(value);
+
     return Scaffold(
         // drawer: const MainView(),
         body: SingleChildScrollView(
-            child: Form(
-                key: _formKey,
-                child: Container(
-                  padding: const EdgeInsets.only(
-                    top: 30,
-                    left: 50,
-                    right: 50,
-                  ),
-                  color: Colors.grey.shade200,
+            child: Container(
+                height: 670,
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  left: 50,
+                  right: 50,
+                ),
+                color: Colors.grey.shade200,
+                child: Form(
+                  key: _formKey,
                   child: IntrinsicHeight(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Row(children: const [
+                        Row(children: [
                           Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 bottom: 15.0,
                               ),
                               child: Text(
-                                "Create Provider",
-                                style: TextStyle(
+                                widget.value,
+                                style: const TextStyle(
                                   color: Colors.black,
                                   fontSize: 30,
                                   fontFamily: 'RaleWay',
@@ -92,6 +99,7 @@ class CreateProviderState extends State<CreateProvider> {
                         ]),
                         Expanded(
                             child: Container(
+                          height: 480,
                           margin: const EdgeInsets.only(bottom: 10),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 50, vertical: 20),
@@ -278,8 +286,6 @@ class CreateProviderState extends State<CreateProvider> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Container(
-                                        height: 90,
-                                        width: 100,
                                         alignment: Alignment.topCenter,
                                         child: Column(children: [
                                           ButtonTheme(
@@ -299,8 +305,9 @@ class CreateProviderState extends State<CreateProvider> {
                                           ),
                                         ])),
                                     Container(
-                                        height: 90,
-                                        width: 100,
+                                        margin: const EdgeInsets.only(
+                                          left: 10,
+                                        ),
                                         alignment: Alignment.topCenter,
                                         child: Column(children: [
                                           ButtonTheme(
