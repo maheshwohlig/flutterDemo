@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:demo/CreateProvider.dart';
 import 'package:demo/main.dart';
 import 'package:demo/Provider_table.dart';

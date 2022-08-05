@@ -1,5 +1,6 @@
 // ignore: unused_import
 import 'package:demo/CreateProvider.dart';
+import 'package:demo/ResultLog.dart';
 import 'package:demo/dashboard.dart';
 
 import 'package:demo/login.dart';
@@ -8,7 +9,7 @@ import 'package:demo/BottomNav.dart';
 import 'package:demo/ExpandedTile.dart';
 import 'package:demo/Provider.dart';
 import 'package:demo/setting.dart';
-import 'package:demo/table.dart';
+import 'package:demo/Provider_table.dart';
 import 'package:flutter/material.dart';
 import 'package:side_navigation/side_navigation.dart';
 
@@ -29,7 +30,6 @@ class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _MainViewState createState() => _MainViewState();
 }
 
@@ -38,14 +38,17 @@ class _MainViewState extends State<MainView> {
 
   /// Views to display
   List<Widget> views = [
-    const Center(
-      child: Provider(),
+    Center(
+      child: Dashboard(),
     ),
     const Center(
       child: Game_config(),
     ),
     const Center(
-      child: Dashboard(),
+      child: Provider(),
+    ),
+    Center(
+      child: ResultLog(),
     ),
     Center(
       child: LoginScreen(),
@@ -59,12 +62,8 @@ class _MainViewState extends State<MainView> {
     Center(
       child: Setting(),
     ),
-    const Center(
-      child: Provider_table(),
-    )
   ];
 
-  /// The currently selected index of the bar
   int selectedIndex = 0;
 
   @override
@@ -102,45 +101,38 @@ class _MainViewState extends State<MainView> {
           ),
         ],
       ),
-
-      /// You can use an AppBar if you want to
-      //appBar: AppBar(
-      //  title: const Text('App'),
-      //),
-
-      // The row is needed to display the current view
       body: Row(
         children: [
           SideNavigationBar(
             selectedIndex: selectedIndex,
             items: const [
               SideNavigationBarItem(
-                icon: Icons.dashboard,
+                icon: Icons.phone,
                 label: 'Dashboard',
               ),
               SideNavigationBarItem(
-                icon: Icons.dashboard,
+                icon: Icons.phone,
                 label: 'Config',
               ),
               SideNavigationBarItem(
-                icon: Icons.person,
+                icon: Icons.phone,
                 label: 'Provider',
               ),
               SideNavigationBarItem(
-                icon: Icons.settings,
+                icon: Icons.phone,
+                label: 'Result Log',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.login,
                 label: 'LoginPage',
               ),
               SideNavigationBarItem(
-                icon: Icons.settings,
+                icon: Icons.logout,
                 label: 'ExpansionTileSample',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,
                 label: 'setting',
-              ),
-              SideNavigationBarItem(
-                icon: Icons.settings,
-                label: 'table',
               ),
             ],
             onTap: (index) {
@@ -149,8 +141,6 @@ class _MainViewState extends State<MainView> {
               });
             },
           ),
-
-          /// Make it take the rest of the available width
           Expanded(
             child: views.elementAt(selectedIndex),
           )
